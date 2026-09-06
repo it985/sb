@@ -7,8 +7,8 @@ FROM alpine:3.21
 RUN apk add --no-cache ca-certificates gettext
 
 COPY --from=sing-box /usr/local/bin/sing-box /usr/local/bin/sing-box
-COPY docker/sing-box/config.json.template /etc/sing-box/config.json.template
-COPY docker/sing-box/entrypoint.sh /entrypoint.sh
+COPY config.json.template /etc/sing-box/config.json.template
+COPY entrypoint.sh /entrypoint.sh
 
 RUN mkdir -p /etc/sing-box /var/lib/sing-box \
     && chmod +x /entrypoint.sh
